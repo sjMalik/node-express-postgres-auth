@@ -52,11 +52,32 @@ View a Video Walkthrough of this checklist [here](https://www.youtube.com/watch?
 				- signed	-	Boolean	Indicates if the cookie should be signed.
 				- in app.js
 				Parse Cookie header and populate req.cookies with an object keyed by the cookie names. Optionally you may enable signed cookie support by passing a secret string, which assigns req.secret so it may be used by other middleware.
+
+				N.B. If the `signed: true` then you have to parse secret to the cookieParser
 				```
 				app.use(cookieParser(process.env.COOKIE_SECRET));
 				```
 			* Best Practices
 			* Cross origin cookie!
+				- If the client and server are totally separate. We have to make configuration(cross origin) in both client and server side to allow cookie to be set on client side. As they are in differnt origin and we are trying to set cookie form one origin to another.
+
+				On the server side. Have to enable `Access-Control-Allow-Credentials` and `Access-Control-Allow-Origin`
+				If you passing credntials back and forth you need to specify exact origin
+				```
+				app.use(cors({
+					origin: 'http://localhost:8080',
+					credentials: true
+				})); 
+				```
+				On the client side. When jquery make the HTTP request pass the credentials to allow cookies to be set and send any cookies that we have locally in the browser
+				```
+				$.ajaxSetup({
+					crossDomain: true,
+					xhrFields: {
+						withCredentials: true
+					}
+				});
+				```
 * Create login form; show errors; redirect;
  	* validate required fields
 * Create sign up form; show errors; redirect;

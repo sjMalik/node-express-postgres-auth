@@ -6,6 +6,12 @@
     - knex migrate:make <migration-name>
     - knex migrate:latest; knex seed:run;
     - knex migrate:rollback                     // Drop the tables
+3. Run the server
+    - cd server
+    - npm start
+4. Run the client app
+    - cd client
+    - npx http-server
 
 ### Authentication and Authorization
  * Authenticate and authorize users in a server-side application
