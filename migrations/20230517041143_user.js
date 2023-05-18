@@ -4,7 +4,7 @@
  */
 // email, password, date, is_active
 exports.up = function(knex) {
-  return knex.schema.createTable('user', table=> {
+  return knex.schema.createTable('users', table=> {
     table.increments(),
     table.text('email').notNullable().unique(),
     table.text('password').notNullable(),
@@ -18,5 +18,5 @@ exports.up = function(knex) {
  * @returns { Promise<void> }
  */
 exports.down = function(knex) {
-  return knex.schema.dropSchemaIfExists('user');
+  return knex.schema.dropTable('users');
 };
