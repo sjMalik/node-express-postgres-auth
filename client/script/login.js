@@ -4,8 +4,9 @@ $(()=> {
         event.preventDefault();
         try{
             const user = getUserFromForm();
-            await login(user);
-            window.location = 'index.html'
+            const response = await login(user);
+            localStorage.user_id = response.id;
+            redirectIfLoggedin();
         }catch(e){
             showErrorMessage(e.responseJSON.message)
         }

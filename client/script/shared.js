@@ -20,6 +20,18 @@ function showErrorMessage(message) {
     $errorMsg.show();
 }
 
+function redirectIfLoggedin() {
+    if(localStorage.user_id) {
+        window.location = 'user.html?id=' + localStorage.user_id
+    }
+}
+
+async function logout() {
+    localStorage.removeItem('user_id');
+    await $.get(`${AUTH_URL}/logout`);
+    window.location = 'login.html'
+}
+
 $.ajaxSetup({
     crossDomain: true,
     xhrFields: {

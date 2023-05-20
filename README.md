@@ -86,7 +86,9 @@ View a Video Walkthrough of this checklist [here](https://www.youtube.com/watch?
 ### Authorization:
 * Visitors can only see the homepage
 	* isLoggedIn middleware
+		- You can pass authorization middleware in `app.use('/users', isLoggedIn, usersRouter);`. Here any routes of `/users` first check the cookie set or not then procced to the user routes
 		* user_id cookie must be set
+			- check whether request contains the signed cookies `req.signedCookies.user_id`
 		* send an unauthorized error message
 	* redirect to login form
 * Logged in users can only see their page

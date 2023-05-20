@@ -48,7 +48,8 @@ router.post('/login', async (req, res, next)=> {
                     if(isSame){
                         setUserIdCookie(req, res, users[0].id);
                         res.json({
-                            message: '🔓'
+                            message: '🔓',
+                            id: users[0].id
                         })
                     }else{
                         throw new Error('Paswword mismatch')
@@ -62,6 +63,13 @@ router.post('/login', async (req, res, next)=> {
     }catch(e){
         next(e);
     }
+});
+
+router.get('/logout', (req, res)=> {
+    res.clearCookie('user_id');
+    res.json({
+        message: 'Logged out'
+    })
 })
 
 // Validate required fields
