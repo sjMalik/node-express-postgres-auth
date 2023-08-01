@@ -16,7 +16,9 @@
     "http-errors": "~1.6.3",
     "knex": "^2.4.2",
     "morgan": "~1.9.1",
-    "pg": "^8.11.0"
+    "pg": "^8.11.0",
+    "swagger-ui-express": "^4.6.3",
+    "yamljs": "^0.3.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"

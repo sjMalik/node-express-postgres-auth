@@ -109,3 +109,6 @@ View a Video Walkthrough of this checklist [here](https://www.youtube.com/watch?
 ## Other ways to auth:
 * Use sessions instead of cookies!
 * Use JWTs instead of sessions!
+
+## [Swagger Doc](https://swagger.io/docs/specification/basic-structure/)
+ - [Swagge Cookie base Authemtication](https://swagger.io/docs/specification/authentication/cookie-authentication/)

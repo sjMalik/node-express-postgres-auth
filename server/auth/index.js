@@ -39,6 +39,7 @@ router.post('/signup', async (req, res, next)=> {
 });
 
 router.post('/login', async (req, res, next)=> {
+    console.log(req.body)
     try{
         if(validateUser(req.body)){
                 const users = await getByEmail(req.body.email);
